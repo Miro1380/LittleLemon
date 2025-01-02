@@ -25,6 +25,9 @@ SECRET_KEY = 'django-insecure-t#14dbqjb$a(gv%=-y9y929wa699&rp1)_(3&bpe&671!z+nt1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+#add the following line
+DJOSER={"USER_ID_FIELD":"username"}
+
 ALLOWED_HOSTS = []
 
 
@@ -39,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'restaurant',
     'rest_framework',
+    'rest_framework.authtoken',
+    'djoser',
 ]
 
 MIDDLEWARE = [
@@ -130,3 +135,13 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#rest config
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
