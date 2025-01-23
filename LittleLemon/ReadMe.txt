@@ -2,6 +2,9 @@
 superuser that was created  username:admin1 pw: 1234pass 
 Once super user is created, you can alter and book tables / items
 Prior to that, there should be a 401 error.
+
+If you're using Insomnia or Postman use basic auth with username and passwords.
+
 #To create Token:
 http://127.0.0.1:8000/auth/token/login
 
